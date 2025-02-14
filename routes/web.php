@@ -24,15 +24,23 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/form-api/list', [FormApiController::class, 'index'])->name('form-api.list');
     Route::get('/form-api/{formApi}/edit', [FormApiController::class, 'edit'])->name('form-api.edit');
     Route::delete('/form-api/{formApi}', [FormApiController::class, 'destroy'])->name('form-api.delete');
+    Route::resource('form-api', FormApiController::class)->except(['edit']);
 });
+
+Route::get('/form-success', function () {
+    return view('form-api.success');
+})->name('form-api.success');
 
 Route::post('/form/{api_key}', [FormApiController::class, 'submitForm'])->name('form.submit');
 
 Route::get('/', function () {
-    return view('welcome');
+    if (auth()->check()) {
+        return redirect('/dashboard');
+    }
+    return redirect('/login');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', [FormApiController::class, 'index'], function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 

@@ -29,6 +29,12 @@ class FormSubmitted extends Mailable
                 'name' => $this->data['name'],
                 'email' => $this->data['email'],
                 'message' => $this->data['message'],
-            ]);
+            ])
+            // Menggunakan email pengirim dari request
+            // ->from($this->data['email'], $this->data['name']);
+            ->from('no-reply@linkup.my.id', 'LinkUp')
+
+            // Menambahkan alamat reply-to berdasarkan email yang dikirimkan dalam request
+            ->replyTo($this->data['email'], $this->data['name'] . ' - Customer');
     }
 }

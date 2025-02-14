@@ -14,9 +14,12 @@ class FormApiController extends Controller
     public function index()
     {
         // Mengambil semua API yang dibuat oleh pengguna yang sedang login
-        $formApis = auth()->user()->formApis;
+        // $formApis = auth()->user()->formApis;
 
-        return view('form-api.index', compact('formApis'));
+        // return view('form-api.index', compact('formApis'));
+
+        $formApis = FormApi::all(); // Mengambil semua data form API
+        return view('dashboard', compact('formApis')); // Mengirimkan data ke view
     }
 
     /**
@@ -60,16 +63,25 @@ class FormApiController extends Controller
             'message' => 'required|string',
         ]);
 
-        // Kirim email ke pengguna yang terkait dengan API key
-        Mail::to($formApi->user->email)->send(new FormSubmitted($validated));
+        // // Kirim email ke pengguna yang terkait dengan API key
+        // Mail::to($formApi->user->email)->send(new FormSubmitted($validated));
 
-        return response()->json(['message' => 'Formulir berhasil dikirim!']);
+        // return response()->json(['message' => 'Formulir berhasil dikirim!']);
+        // Kirim email
+        Mail::to($formApi->user->email)  // Alamat penerima yang tetap
+            ->send(new FormSubmitted($validated));  // Pass data formulir
+
+        // return back()->with('success', 'Pesan Anda telah terkirim!');
+        // return response()->json(['message' => 'Formulir berhasil dikirim!']);
+
+        // Redirect ke halaman baru yang menampilkan pesan sukses
+        return redirect()->route('form-api.success');
     }
 
-    public function edit(FormApi $formApi)
-    {
-        return view('form-api.edit', compact('formApi'));
-    }
+    // public function edit(FormApi $formApi)
+    // {
+    //     return view('form-api.edit', compact('formApi'));
+    // }
 
     public function destroy(FormApi $formApi)
     {

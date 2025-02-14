@@ -5,19 +5,37 @@
         </h2>
     </x-slot>
 
-    <div class="container mt-4">
-        <form action="{{ route('form-api.store') }}" method="POST">
-            @csrf
-            <div class="mb-3">
-                <label for="name" class="form-label">Nama Form</label>
-                <input type="text" id="name" name="name" class="form-control" required>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+
+                    <form action="{{ route('form-api.store') }}" method="POST">
+                        @csrf
+
+                        <!-- Nama Form -->
+                        <div class="mb-4">
+                            <x-input-label for="name" :value="__('Nama Form')" />
+                            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" required autofocus />
+                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="flex items-center justify-end mt-4">
+                            <x-primary-button>
+                                {{ __('Buat API') }}
+                            </x-primary-button>
+                        </div>
+                    </form>
+
+                    @if(session('success'))
+                    <div class="alert alert-success mt-3">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+
+                </div>
             </div>
-
-            <button type="submit" class="btn btn-primary">Buat API</button>
-        </form>
-
-        @if(session('success'))
-        <div class="alert alert-success mt-3">{{ session('success') }}</div>
-        @endif
+        </div>
     </div>
 </x-app-layout>

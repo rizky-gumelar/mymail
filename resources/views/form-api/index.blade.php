@@ -28,7 +28,7 @@
                     <td>{{ $formApi->name }}</td>
                     <td>{{ $formApi->api_key }}</td>
                     <td>
-                        <a href="{{ route('form-api.edit', $formApi->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <!-- <a href="{{ route('form-api.edit', $formApi->id) }}" class="btn btn-warning btn-sm">Edit</a> -->
                         <form action="{{ route('form-api.delete', $formApi->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
