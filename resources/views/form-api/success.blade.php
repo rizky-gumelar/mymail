@@ -80,7 +80,7 @@
 
         <!-- Deskripsi -->
         <p class="text-lg text-gray-700 mb-8">
-            Terima kasih! Email Anda telah sukses dikirim. Jangan lupa, kunjungi <a href="http://linkup.my.id">untuk pengiriman email pada website anda</a>.
+            Terima kasih! Email Anda telah sukses dikirim. Jangan lupa, kunjungi <a class="text-green-600" href="http://linkup.my.id">LinkUp Mail</a> untuk pengiriman email pada website anda.
         </p>
 
         <!-- Tombol Kembali -->

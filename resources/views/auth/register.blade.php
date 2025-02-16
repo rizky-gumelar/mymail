@@ -25,17 +25,26 @@
 
             <div class="mb-4">
                 <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
-                <input type="text" name="name" id="name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#56e237] focus:outline-none">
+                <input type="text" name="name" id="name" required messages="$errors->get('name')" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#56e237] focus:outline-none">
+                <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
 
             <div class="mb-4">
                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#56e237] focus:outline-none">
+                <input type="email" name="email" id="email" required messages="$errors->get('email')" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#56e237] focus:outline-none">
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
             <div class="mb-6">
                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                <input type="password" name="password" id="password" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#56e237] focus:outline-none">
+                <input type="password" name="password" id="password" required messages="$errors->get('password')" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#56e237] focus:outline-none">
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            </div>
+
+            <div class="mb-6">
+                <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Password Confirmation</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" messages="$errors->get('password_confirmation')" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#56e237] focus:outline-none">
+                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
 
             <div class="flex items-center justify-between">
