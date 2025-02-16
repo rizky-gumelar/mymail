@@ -1,52 +1,53 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<!DOCTYPE html>
+<html lang="id">
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-[#c4fea5] to-[#9dffe1] flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-md p-8 bg-white rounded-lg shadow-md border border-gray-200">
+        <!-- Logo and Name -->
+        <div class="mb-6 flex items-center justify-center">
+            <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="w-16 mr-3">
+            <h1 class="text-2xl font-semibold text-gray-600">LinkUp Mail</h1>
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Daftar Akun</h2>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+        <!-- Register Form -->
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-            <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <!-- Submit Button -->
-        <div class="flex items-center justify-between mt-4">
-            <div>
-                <x-primary-button class="w-full">
-                    {{ __('Register') }}
-                </x-primary-button>
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
+                <input type="text" name="name" id="name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#56e237] focus:outline-none">
             </div>
-        </div>
 
-        <!-- Already Registered Link -->
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#56e237] focus:outline-none">
+            </div>
+
+            <div class="mb-6">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" name="password" id="password" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#56e237] focus:outline-none">
+            </div>
+
+            <div class="flex items-center justify-between">
+                <button type="submit" class="w-full py-2 bg-[#56e237] text-white font-semibold rounded-md hover:bg-[#62c42d] transition duration-300">Daftar</button>
+            </div>
+        </form>
+
         <div class="mt-4 text-center">
-            <span class="text-sm text-gray-600 dark:text-gray-400">
-                {{ __("Already registered?") }}
-            </span>
-            <a href="{{ route('login') }}" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                {{ __('Log in here') }}
-            </a>
+            <p class="text-sm text-gray-600">Sudah punya akun? <a href="{{ route('login') }}" class="text-[#56e237] hover:text-[#62c42d]">Masuk</a></p>
         </div>
-    </form>
-</x-guest-layout>
+    </div>
+
+</body>
+
+</html>

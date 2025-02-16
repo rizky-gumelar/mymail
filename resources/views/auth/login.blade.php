@@ -1,59 +1,55 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="id">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+<body class="bg-gradient-to-r from-[#c4fea5] to-[#9dffe1] flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-md p-8 bg-white rounded-lg shadow-md border border-gray-200">
+        <!-- Logo and Name -->
+        <div class="mb-6 flex items-center justify-center">
+            <img src="{{ asset('images/logo.svg') }}" alt="Logo" class="w-16 mr-3">
+            <h1 class="text-2xl font-semibold text-gray-600">LinkUp Mail</h1>
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <h2 class="text-2xl font-bold text-center text-gray-600 mb-4">Masuk</h2>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                type="password"
-                name="password"
-                required autocomplete="current-password" />
+        <!-- Login Form -->
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-between mt-4">
-            @if (Route::has('password.request'))
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                {{ __('Forgot your password?') }}
-            </a>
-            @endif
-
-            <div>
-                <x-primary-button class="ms-3">
-                    {{ __('Log in') }}
-                </x-primary-button>
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#B5E237] focus:outline-none">
             </div>
-        </div>
 
-        <!-- Register Link -->
+            <div class="mb-6">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" name="password" id="password" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-[#B5E237] focus:outline-none">
+            </div>
+
+            <div class="flex items-center justify-between">
+                <button type="submit" class="w-full py-2 bg-[#56e237] text-white font-semibold rounded-md hover:bg-[#62c42d] transition duration-300">Masuk</button>
+            </div>
+        </form>
+
+        <!-- Reset Password Link -->
         <div class="mt-4 text-center">
-            <span class="text-sm text-gray-600 dark:text-gray-400">
-                {{ __("Don't have an account?") }}
-            </span>
-            <a href="{{ route('register') }}" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                {{ __('Register here') }}
+            <a href="{{ route('password.request') }}" class="text-sm text-[#56e237] hover:text-[#62c42d]">
+                Lupa password?
             </a>
         </div>
-    </form>
-</x-guest-layout>
+
+        <div class="mt-4 text-center">
+            <p class="text-sm text-gray-600">Belum punya akun? <a href="{{ route('register') }}" class="text-[#56e237] hover:text-[#9BC42D]">Daftar</a></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

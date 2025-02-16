@@ -1,11 +1,19 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Buat Form API') }}
-        </h2>
-    </x-slot>
 
-    <div class="py-12">
+
+    <div class="bg-gradient-to-r from-blue-50 to-green-50 min-h-screen">
+
+        <div class="flex items-center space-x-2 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12 ">
+            <a href="{{ route('dashboard') }}" class="flex items-center text-gray-600 hover:text-gray-900">
+                <!-- Arrow Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                    {{ __('Kembali') }}
+                </h2>
+            </a>
+        </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
