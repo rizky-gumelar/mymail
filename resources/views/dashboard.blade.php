@@ -68,9 +68,8 @@
                 </p>
 
                 <!-- Code Block with Syntax Highlighting -->
-                <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow-md overflow-x-auto">
-                    <pre><code class="language-html" id="codeBlock">
-&lt;form action="https://formspree.io/f/{FORM_ID}" method="POST"&gt;
+                <div class="bg-black p-4 rounded-lg shadow-md overflow-x-auto">
+                    <pre><code class="language-html" id="codeBlock">&lt;form action="http://127.0.0.1:8000/form/{{$formApi->api_key}}" method="POST"&gt;
     &lt;fieldset&gt;
         &lt;div class="fs-field"&gt;
             &lt;label for="name"&gt;Full Name&lt;/label&gt;
@@ -81,8 +80,7 @@
             &lt;input type="date" id="dob" name="dob" required /&gt;
         &lt;/div&gt;
     &lt;/fieldset&gt;
-&lt;/form&gt;
-                    </code></pre>
+&lt;/form&gt;                    </code></pre>
                 </div>
 
                 <button class="copy-btn mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none" data-clipboard-target="#codeBlock">Copy Code</button>
@@ -90,43 +88,6 @@
         </div>
     </div>
 
-    <!-- Include PrismJS JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
-
-    <!-- Include Clipboard.js JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
-
-    <!-- SweetAlert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
-
-    <!-- Script for copying to clipboard with SweetAlert -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Initialize ClipboardJS for copy functionality
-            var clipboard = new ClipboardJS('.copy-btn');
-
-            // Success event listener to show SweetAlert on successful copy
-            clipboard.on('success', function(e) {
-                // Show SweetAlert success message
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Code successfully copied to clipboard!',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                });
-                e.clearSelection(); // Clear selection after copying
-            });
-
-            // Error event listener (optional)
-            clipboard.on('error', function(e) {
-                // Show SweetAlert error message
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Failed to copy code. Please try again.',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-            });
-        });
-    </script>
+    <!-- Include the compiled app.js -->
+    <script src="{{ mix('js/app.js') }}"></script>
 </x-app-layout>
