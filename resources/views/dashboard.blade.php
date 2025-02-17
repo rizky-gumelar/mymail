@@ -76,10 +76,8 @@
                 <!-- Code Block with Syntax Highlighting -->
                 <div class="relative bg-black p-4 rounded-lg shadow-md overflow-x-auto max-h-80">
                     <!-- Copy button positioned at top-right -->
-                    <button class="copy-btn absolute top-2 right-2 px-3 py-1 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none" data-clipboard-target="#codeBlockHtml">Copy Code</button>
-
-                    <pre><code class="language-html" id="codeBlockHtml">
-&lt;form action="http://127.0.0.1:8000/form/{{$formApi->api_key}}" method="POST"&gt;
+                    <div class="sticky top-0 max-w-fit ml-auto mr-0"><button class=" copy-btn px-3 py-1 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none" data-clipboard-target="#codeBlockHtml">Copy Code</button></div>
+                    <pre><code class="language-html" id="codeBlockHtml">&lt;form action="http://127.0.0.1:8000/form/{{$formApi->api_key}}" method="POST"&gt;
     &lt;fieldset&gt;
         &lt;div class="fs-field"&gt;
             &lt;label for="name"&gt;Full Name&lt;/label&gt;
