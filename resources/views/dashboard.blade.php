@@ -181,9 +181,6 @@ body {
         </div>
     </div>
 
-    <!-- Include the compiled app.js -->
-    <script src="{{ mix('js/app.js') }}"></script>
-
     <!-- ClipboardJS Initialization Script -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
