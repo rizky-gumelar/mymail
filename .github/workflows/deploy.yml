@@ -22,7 +22,7 @@ jobs:
           local-dir: ./
           server-dir: /home/ptisczaz/mail.linkup.my.id/ # Sesuaikan path
 
-      - name: Run Laravel Commands
-        run: |
-          curl http://mail.linkup.my.id/artisan.php?command=config:cache
-          curl http://mail.linkup.my.id/artisan.php?command=migrate --force
+      # - name: Run Laravel Commands
+      #   run: |
+      #     curl http://mail.linkup.my.id/artisan.php?command=config:cache
+      #     curl http://mail.linkup.my.id/artisan.php?command=migrate
