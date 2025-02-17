@@ -1,6 +1,4 @@
 <x-app-layout>
-
-
     <div class="bg-gradient-to-r from-blue-50 to-green-50 min-h-screen">
 
         <div class="flex items-center space-x-2 sm:px-6 lg:px-8 max-w-7xl mx-auto py-6">
@@ -14,11 +12,12 @@
                 </h2>
             </a>
         </div>
+
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
-                    <form action="{{ route('form-api.store') }}" method="POST">
+                    <form action="{{ route('form-api.store') }}" method="POST" id="apiForm">
                         @csrf
 
                         <!-- Nama Form -->
@@ -30,16 +29,26 @@
 
                         <!-- Submit Button -->
                         <div class="flex items-center justify-end mt-4">
-                            <x-primary-button>
+                            <x-primary-button type="submit">
                                 {{ __('Buat API') }}
                             </x-primary-button>
                         </div>
                     </form>
 
                     @if(session('success'))
-                    <div class="alert alert-success mt-3">
-                        {{ session('success') }}
-                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            Swal.fire({
+                                title: "Sukses!",
+                                text: "{{ session('success') }}",
+                                icon: "success",
+                                confirmButtonText: "OK"
+                            }).then(() => {
+                                window.location.href = "{{ route('dashboard') }}";
+                            });
+                        });
+                    </script>
                     @endif
 
                 </div>

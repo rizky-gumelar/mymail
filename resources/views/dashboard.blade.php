@@ -77,7 +77,7 @@
                 <div class="relative bg-black p-4 rounded-lg shadow-md overflow-x-auto max-h-80">
                     <!-- Copy button positioned at top-right -->
                     <div class="sticky top-0 max-w-fit ml-auto mr-0"><button class=" copy-btn px-3 py-1 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none" data-clipboard-target="#codeBlockHtml">Copy Code</button></div>
-                    <pre><code class="language-html" id="codeBlockHtml">&lt;form action="http://127.0.0.1:8000/form/{{$formApi->api_key}}" method="POST"&gt;
+                    <pre><code class="language-html" id="codeBlockHtml">&lt;form action="(API Key)" method="POST"&gt;
     &lt;fieldset&gt;
         &lt;div class="fs-field"&gt;
             &lt;label for="name"&gt;Full Name&lt;/label&gt;
@@ -89,8 +89,7 @@
         &lt;/div&gt;
     &lt;/fieldset&gt;
 &lt;/form&gt;
-                    </code><code class="hidden language-css" id="codeBlockCss">
-/* General styling */
+                    </code><code class="hidden language-css" id="codeBlockCss">/* General styling */
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
