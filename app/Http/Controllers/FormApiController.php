@@ -14,11 +14,11 @@ class FormApiController extends Controller
     public function index()
     {
         // Mengambil semua API yang dibuat oleh pengguna yang sedang login
-        // $formApis = auth()->user()->formApis;
+        $formApis = auth()->user()->formApis;
 
         // return view('form-api.index', compact('formApis'));
 
-        $formApis = FormApi::all(); // Mengambil semua data form API
+        // $formApis = FormApi::all(); // Mengambil semua data form API
         return view('dashboard', compact('formApis')); // Mengirimkan data ke view
     }
 
