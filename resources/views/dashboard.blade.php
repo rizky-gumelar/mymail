@@ -84,8 +84,12 @@
             &lt;input type="text" id="name" name="name" required /&gt;
         &lt;/div&gt;
         &lt;div class="fs-field"&gt;
-            &lt;label for="dob"&gt;Date of Birth&lt;/label&gt;
-            &lt;input type="date" id="dob" name="dob" required /&gt;
+            &lt;label for="email"&gt;Email&lt;/label&gt;
+            &lt;input type="email" id="email" name="email" required /&gt;
+        &lt;/div&gt;
+        &lt;div class="fs-field"&gt;
+            &lt;label for="email"&gt;Email&lt;/label&gt;
+            &lt;textarea name="message" placeholder="Pesan" required /&gt;
         &lt;/div&gt;
     &lt;/fieldset&gt;
 &lt;/form&gt;
